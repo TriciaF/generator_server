@@ -37,9 +37,17 @@ function runServer() {
 	// 		if (err) {
 	// 		return reject(err);
 	// 		}
-	let port = '8080';
-		app.listen(port);
-		console.log(`your app is listening on port ${port}`);
+	var http = require('http');
+	http.createServer(function (req,res) {
+		res.writeHead(200, { 'Content-Type': 'text/plain'});
+		res.end('Hello World\n');
+	}).listen('8080', 'localhost');
+	console.log('Server running at http://localhost:8080/');
+	
+
+	//let port = '8080';
+	//	app.listen(port);
+	//	console.log(`your app is listening on port ${port}`);
 		//server = app.listen(port, () => {
 			//console.log(`Your app is listening on port ${port}`);
 			// resolve(server);
