@@ -1,25 +1,30 @@
 {
-    "name": "generator_server",
-    "version": "1.0.0",
-    "description": "Node server of the dynamic portion of the generator server",
-    "main": "server.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "server": "node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/TriciaF/generator_server.git"
-    },
-    "author": "Tricia Forrester",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/TriciaF/generator_server/issues"
-    },
-    "homepage": "https://github.com/TriciaF/generator_server#readme",
-    "dependencies": {
-        "babel": "^6.23.0",
-        "express": "^4.16.4",
-        "mongoose": "^5.4.20"
-    }
+  "name": "generator_server",
+  "version": "1.0.0",
+  "description": "Node server of the dynamic portion of the generator server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TriciaF/generator_server.git"
+  },
+  "author": "Tricia Forrester",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TriciaF/generator_server/issues"
+  },
+  "homepage": "https://github.com/TriciaF/generator_server#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
+  }
 }

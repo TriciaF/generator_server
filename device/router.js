@@ -2,13 +2,12 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const deviceRouter = express.Router();
 const { Device } = require('./models');
 
-const router = express.Router();
-const jsonParser = bodyParser.json();
+deviceRouter.use(bodyParser.json());
 
-router.get('/', (req, res) => {
+deviceRouter.get('/', (req, res) => {
     Device.find()
         .then (result => {
             console.log('device config = ', result);
@@ -20,4 +19,4 @@ router.get('/', (req, res) => {
         });
 });
 
-module.exports = {router};
+module.exports = deviceRouter;

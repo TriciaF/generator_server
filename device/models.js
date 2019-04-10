@@ -9,15 +9,13 @@ const deviceSchema = mongoose.Schema({
     serial: String,
     firmware: {
         ORK: String,
-        DSP: STring,
+        DSP: String,
         FPGA: String,
     },
     hostname: String,
     checksum: String,
     uptime: String
 });
-
-deviceSchema.set('toJSON', {virtuals: true});
 
 
 //serialize method for printing out the schema during debug
@@ -33,6 +31,6 @@ deviceSchema.methods.serialize = function() {
     };
 };
 
-const Device = mongoose.model ('Device', deviceSchema);
+const Device = mongoose.model('device-database', deviceSchema);
 
 module.exports = {Device};
