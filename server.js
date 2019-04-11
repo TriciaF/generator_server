@@ -3,6 +3,7 @@
 //initializations
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 mongoose.Promise = global.Promise;
 
 const { PORT, DEVICE_DATABASE_URL} = require('./config');
@@ -14,11 +15,11 @@ const deviceRouter = require('./device/router');
 
 //CORS
 app.use (function (req,res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Origin', 'Content-Type');
 	res.header('Access-Control-Allow_headers', 'Origin, X-Requested-With, Content-Type, Authorization');
 	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
 	if (req.method === 'OPTIONS') {
-		return res.SendStatus(204);
+		return res.status(204);
 	}
 	next();
 });
@@ -36,7 +37,8 @@ let server;
 function runServer(dbURL) {
 	 console.log('run server started');
 	 return new Promise((resolve, reject) => {
-	 	mongoose.connect(dbURL, {useNewUrlParser: true}, err => {
+	 	mongoose.connect(dbURL,  { useNewUrlParser: true }, err => {
+			console.log('database = ', dbURL);
 	 		if (err) {
 	 		return reject(err);
 	 		}

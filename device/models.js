@@ -31,6 +31,6 @@ deviceSchema.methods.serialize = function() {
     };
 };
 
-const Device = mongoose.model('device-database', deviceSchema);
+const Device = mongoose.model('devices', deviceSchema);
 
 module.exports = {Device};

@@ -1,6 +1,6 @@
 'use strict';
 
 const { Device } = require('./models');
-const { router } = require('./router');
+const { deviceRouter } = require('./router');
 
-module.exports = {Device, router};
+module.exports = {Device, deviceRouter};

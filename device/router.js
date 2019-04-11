@@ -7,11 +7,14 @@ const { Device } = require('./models');
 
 deviceRouter.use(bodyParser.json());
 
-deviceRouter.get('/', (req, res) => {
+deviceRouter.get('/device-config', (req, res) => {
+    console.log('enter /device-config GET route');
     Device.find()
         .then (result => {
             console.log('device config = ', result);
-            res.json(result.serialize())
+            res.json({
+		result: result.map((config) => config.serialize())
+	    });
         })
         .catch( error => {
             console.error(error);
