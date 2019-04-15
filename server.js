@@ -48,7 +48,7 @@ function runServer(dbURL) {
 			 	resolve(server);
 			})
 	 		.on('error', err => {
-    			disconnect();
+    			mongoose.disconnect();
 	 			reject(err);
 	 		});
 		 });
@@ -78,7 +78,7 @@ function closeServer() {
 // can start the server as needed
 	if (require.main === module) {
 		runServer(DEVICE_DATABASE_URL).catch(err => console.error(
-			'Database did not start'));
+			'Database did not start', err));
 	}
 
 module.exports  = {app, runServer, closeServer};
