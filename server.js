@@ -4,6 +4,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 mongoose.Promise = global.Promise;
 
 const { PORT, DEVICE_DATABASE_URL} = require('./config');
@@ -13,13 +14,15 @@ const app = express();
 //initalize the routers
 const deviceRouter = require('./device/router');
 
+
 //CORS
-app.use (function (req,res, next) {
-	res.header('Access-Control-Allow-Origin', 'Content-Type');
-	res.header('Access-Control-Allow_headers', 'Origin, X-Requested-With, Content-Type, Authorization');
-	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+app.all (function (req,res, next) {
+	console.log('request = ', req.url, req.body, req.method);
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow_Headers', "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+	res.setheader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
 	if (req.method === 'OPTIONS') {
-		return res.status(204);
+		return res.sendStatus(204);
 	}
 	next();
 });

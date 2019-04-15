@@ -12,13 +12,11 @@ deviceRouter.get('/device-config', (req, res) => {
     Device.find()
         .then (result => {
             console.log('device config = ', result);
-            res.json({
-		result: result.map((config) => config.serialize())
-	    });
+            return res.status(200).json(result);
         })
         .catch( error => {
             console.error(error);
-            res.status(500).json({message: 'Internal server error'});
+           return res.status(500).json({message: 'Internal server error'});
         });
 });
 
