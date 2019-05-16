@@ -19,7 +19,7 @@ const deviceRouter = require('./device/router');
 app.all (function (req,res, next) {
 	console.log('request = ', req.url, req.body, req.method);
 	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Allow_Headers', "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+	res.setHeader('Access-Control-Allow_Headers', 'content-type');
 	res.setheader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
 	if (req.method === 'OPTIONS') {
 		return res.sendStatus(204);
