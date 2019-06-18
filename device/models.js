@@ -7,11 +7,7 @@ mongoose.Promise = global.Promise;
 const deviceSchema = mongoose.Schema({
     model: String,
     serial: String,
-    firmware: {
-        ORK: String,
-        DSP: String,
-        FPGA: String,
-    },
+    firmware: String,
     hostname: String,
     checksum: String,
     uptime: String
