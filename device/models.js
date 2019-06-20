@@ -10,7 +10,8 @@ const deviceSchema = mongoose.Schema({
     firmware: String,
     hostname: String,
     checksum: String,
-    uptime: String
+    uptime: String,
+    product: String,
 });
 
 
@@ -23,7 +24,8 @@ deviceSchema.methods.serialize = function() {
         firmware: this.firmware,
         hostname: this.hostname,
         checksum: this.checksum,
-        uptime: this.uptime
+        uptime: this.uptime,
+        product: this.product
     };
 };
 
